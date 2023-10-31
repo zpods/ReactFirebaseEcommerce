@@ -3,12 +3,14 @@ import React from 'react';
 import Register from './pages/auth/Register';
 import Login from './pages/auth/Login';
 import Home from './pages/Home';
+import Header from './components/nav/Header';
 import {
   createBrowserRouter,
   createRoutesFromElements,
   Route,
   RouterProvider,
 } from "react-router-dom";
+
 
 function App() {
 
@@ -25,7 +27,11 @@ function App() {
 
 
   return (
-    <RouterProvider  router={router} />
+    <React.Fragment>
+      <Header></Header>
+      <RouterProvider  router={router} />
+    </React.Fragment>
+    
   );
 }
 
