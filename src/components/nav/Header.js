@@ -1,8 +1,8 @@
 
 import React, { useState } from 'react';
-import { AppstoreOutlined, UserAddOutlined, UserOutlined,} from '@ant-design/icons';
+import { AppstoreOutlined, UserAddOutlined, UserOutlined, LoginOutlined} from '@ant-design/icons';
 import { Menu } from 'antd';
-//import SubMenu from 'antd/es/menu/SubMenu';
+import { Link } from 'react-router-dom';
 
 
 const Header = () => {
@@ -18,11 +18,20 @@ const Header = () => {
   return ( 
     <div className='container'>
       <Menu onClick={onClick} style={{ display: "block"}} selectedKeys={[current]} mode="horizontal" items="">
-        <Menu.Item key="home" style={{float: "left"}}><AppstoreOutlined />Home</Menu.Item>
-        <SubMenu  style={{float: "right"}} key="submenu" title={<span><UserOutlined />User</span>} >
+        <Menu.Item key="home" style={{float: "left"}}>
+          <Link to="/"><AppstoreOutlined /> Home</Link>
+        </Menu.Item>
+        <Menu.Item key="user" style={{float: "left"}}>
+          <Link to="/user"><UserOutlined /> User</Link>
+        </Menu.Item>
+        <SubMenu  style={{float: "right"}} key="submenu" title={<span><LoginOutlined /> Entry</span>} >
           <MenuItemGroup >
-            <Menu.Item key="login" ><UserOutlined />Login</Menu.Item>
-            <Menu.Item key="register" ><UserAddOutlined />Register</Menu.Item>
+            <Menu.Item key="login" >
+              <Link to="/login" ><UserOutlined /> Login</Link>
+            </Menu.Item>
+            <Menu.Item key="register" >
+              <Link to="/register"><UserAddOutlined /> Register</Link>
+            </Menu.Item>
           </MenuItemGroup>
         </SubMenu>     
       </Menu>  
