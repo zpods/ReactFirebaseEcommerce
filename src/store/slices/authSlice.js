@@ -7,9 +7,6 @@ const authSlice = createSlice({
   token: false,
   reducers: {
     setToken(state, action) {
-        console.log(action);
-        console.log(state.token);
-        console.log(state.isLoged);
       state.push({
         token: action.payload.token,
       })
@@ -18,6 +15,7 @@ const authSlice = createSlice({
         state.push({
             logged: action.payload.isLogged,
         })
+
     }
   }
 })
